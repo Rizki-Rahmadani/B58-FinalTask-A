@@ -1,0 +1,24 @@
+{
+  "name": "b58_finaltask_a",
+  "version": "1.0.0",
+  "description": "Test Kompetensi FinalTask",
+  "main": "route.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "b58-finaltask-a"
+  ],
+  "author": "Rizki Rahmadani",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "express": "^4.21.1",
+    "express-session": "^1.18.1",
+    "hbs": "^4.2.0",
+    "nodemon": "^3.1.7",
+    "pg": "^8.13.1",
+    "pg-hstore": "^2.3.4",
+    "sequelize-cli": "^6.6.2"
+  }
+}
