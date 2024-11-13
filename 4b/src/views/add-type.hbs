@@ -41,14 +41,25 @@
                         <a class="nav-link" href="/">Home</a>
                     </li>
                 </ul>
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/register">Register</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="login">Login</a>
-                    </li>
-                </ul>
+                {{#if user}}
+            <div class="dropdown">
+              <div class="welcome-text">Welcome, {{user.username}} ▼</div>
+              <div class="dropdown-content">
+                <form action="/logout" method="POST">
+                  <button type="submit" class="logout-btn">Logout</button>
+                </form>
+              </div>
+            </div>
+          {{else}}
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="/register">Register</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="login">Login</a>
+              </li>
+            </ul>
+          {{/if}}
             </div>
         </div>
     </nav>
@@ -59,14 +70,10 @@
         <div class="container-sm shadow p-5">
         <h2 class="text-center">ADD TYPE</h2>
         <br>
-        <form action="/add-hero" method="POST" enctype="multipart/form-data" class="container-form p-3 mb-5">
+        <form action="/add-type" method="POST" class="container-form p-3 mb-5">
             <div class="mb-3">
-                <label for="name" class="form-label">Name</label>
-                <input type="text" class="form-control" id="name" name="name" required>
-            </div>
-            <div class="mb-3">
-                <label for="heroType" class="form-label">Type</label>
-                <input type="text" class="form-control" id="type" name="type" required>
+                <label for="name" class="form-label">Name Type</label>
+                <input type="text" class="form-control" id="name" name="type" required>
             </div>
             <br>
             <div class="d-flex justify-content-center">
