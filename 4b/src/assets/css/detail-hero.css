@@ -1,0 +1,18 @@
+.container-detail {
+  width: 700px;
+}
+
+.btn-add {
+  background-color: #1c3879;
+  color: white;
+}
+
+.btn:hover {
+  background-color: #1c3879;
+  color: white;
+}
+
+.btn-detail {
+  height: 100px;
+  gap: 10px;
+}

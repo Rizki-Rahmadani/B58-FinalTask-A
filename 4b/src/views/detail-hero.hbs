@@ -13,8 +13,8 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="assets/css/navbar.css" />
-    <link rel="stylesheet" href="assets/css/home.css" />
+    <link rel="stylesheet" href="/assets/css/navbar.css" />
+    <link rel="stylesheet" href="/assets/css/detail-hero.css" />
     <style>
       body { font-family: 'Noto Sans', sans-serif; font-size: large;
       background-color: #9bc3db; }
@@ -27,7 +27,7 @@
       style="background-color: #5888a7;"
     >
       <div class="container">
-        <a href="/"><img src="assets/img/logo.png" width="150px" alt="" /></a>
+        <a href="/"><img src="/assets/img/logo.png" width="150px" alt="" /></a>
         <button
           class="navbar-toggler"
           type="button"
@@ -60,7 +60,7 @@
                 <a class="nav-link" href="/register">Register</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="login">Login</a>
+                <a class="nav-link" href="/login">Login</a>
               </li>
             </ul>
           {{/if}}
@@ -71,60 +71,30 @@
     {{! Kontent }}
     <div class="container-fluid">
       <div class="container-sm my-5 p-5 shadow">
-        {{#if user}}
-          <div class="d-flex justify-content-end" style="gap: 10px;">
-            <a href="/add-hero" class="btn btn-add">Add Hero</a>
-            <a href="/add-type" class="btn btn-add">Add Type</a>
-          </div>
-        {{/if}}
         <br />
         <div class="container-sm d-flex justify-content-center flex-wrap gap">
-          {{#each heroes}}
-            <div class="card" style="width: 10rem;">
-              <img src="{{photo}}" class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h6 class="card-title">{{name}}</h6>
-                <p class="card-text">{{type_id}}</p>
-                <a href="/detail-hero/{{id}}" class="btn btn-detail">Detail</a>
-                <div
-                  class="dropdown"
-                  style="position: absolute; right: 5px; top  : 5px;"
-                >
-                  <button
-                    class="btn btn-secondary dropdown-toggle"
-                    type="button"
-                    id="dropdownMenuButton"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                    style="font-size: 12px; padding: 0; width: 10px; height: 20px;"
-                  >
-                    ⋮
-                  </button>
-                  <ul
-                    class="dropdown-menu custom-dropdown-menu"
-                    aria-labelledby="dropdownMenuButton"
-                  >
-                    <li><a
-                        class="dropdown-item"
-                        href="/edit-hero/{{id}}"
-                      >Edit</a></li>
-                    <li>
-                      <form
-                        action="/delete-hero/{{id}}"
-                        method="POST"
-                        onsubmit="return confirm('Apakah Anda yakin ingin menghapus pahlawan ini?');"
-                      >
-                        <button
-                          type="submit"
-                          class="dropdown-item"
-                        >Delete</button>
-                      </form>
-                    </li>
-                  </ul>
-                </div>
+          {{#if messages.error}}
+            <div class="alert alert-danger" role="alert">
+              {{messages.error}}
+            </div>
+          {{/if}}
+          <div class="row container-detail">
+            <div class="col-4">
+              <img src="/{{hero.photo}}" class="card-img-top" alt="..." />
+            </div>
+            <div class="col">
+              <div class="card-body py-2">
+                <h4 class="card-title">Servant Name: {{hero.servant}}</h4>
+                <p class="card-text">Type:
+                  {{hero.name}}
+                  [ID:
+                  {{hero.type_id}}]</p>
+                <p class="card-text">Author:
+                  {{hero.username}}
+                  [ID:{{hero.users_id}}]</p>
               </div>
             </div>
-          {{/each}}
+          </div>
 
           {{! <div class="card" style="width: 10rem;">
             <img src="assets/img/archer.jpg" class="card-img-top" alt="..." />

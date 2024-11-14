@@ -56,7 +56,7 @@
                 <a class="nav-link" href="/register">Register</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="login">Login</a>
+                <a class="nav-link" href="/login">Login</a>
               </li>
             </ul>
           {{/if}}
@@ -70,20 +70,18 @@
         <div class="container-sm shadow p-5">
         <h2 class="text-center">ADD HERO</h2>
         <br>
-        <form action="/add-hero" method="POST" class="container-form p-3 mb-5">
+        <form action="/add-hero" method="POST" enctype="multipart/form-data" class="container-form p-3 mb-5">
             <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
                 <input type="text" class="form-control" id="name" name="name" required>
             </div>
             <div class="mb-3">
                 <label for="heroType" class="form-label">Select Hero Type</label>
-                <select class="form-select" id="heroType" name="heroType">
+                <select class="form-select" id="heroType" name="heroType" required>
                     <option value="" disabled selected>Select a type</option>
-                    <option value="saber">Saber</option>
-                    <option value="archer">Archer</option>
-                    <option value="lancer">Lancer</option>
-                    <option value="rider">Rider</option>
-                    <option value="caster">Caster</option>
+                    {{#each types}}
+                        <option value="{{this.id}}">{{this.name}}</option>
+                    {{/each}}
                 </select>
             </div>
             <div class="mb-3">
