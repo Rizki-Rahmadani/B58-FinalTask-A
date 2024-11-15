@@ -98,7 +98,7 @@ async function editHero(req, res) {
     // Check if the logged-in user is the owner of the hero
     if (hero[0].users_id !== user.id) {
         req.flash("error", "Maaf, Tetapi kamu bukan pemilik hero ini.");
-        return res.redirect("/", { user });
+        return res.redirect("/");
     }
 
     // Get types for dropdown

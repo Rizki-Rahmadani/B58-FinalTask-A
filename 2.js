@@ -30,4 +30,4 @@ function hitungVoucher(voucher, totalBelanja) {
 }
 
 // Contoh penggunaan fungsi hitungVoucher dengan voucher "DumbWaysJos" dan total belanja Rp 100.000
-hitungVoucher("DumbWaysJos", 100000);
+hitungVoucher("DumbWaysMantap", 100000);
